@@ -1,0 +1,12 @@
+C:\Users\destr\OneDrive - Colegio Universitario de Cartago\CUC\VII Cuatrimestre\Fundamentos administración de proyectos informáticos\Código\ProyectoPrograV\bin\Debug\ProyectoPrograV.dll.config
+C:\Users\destr\OneDrive - Colegio Universitario de Cartago\CUC\VII Cuatrimestre\Fundamentos administración de proyectos informáticos\Código\ProyectoPrograV\bin\Debug\ProyectoPrograV.dll
+C:\Users\destr\OneDrive - Colegio Universitario de Cartago\CUC\VII Cuatrimestre\Fundamentos administración de proyectos informáticos\Código\ProyectoPrograV\bin\Debug\ProyectoPrograV.pdb
+C:\Users\destr\OneDrive - Colegio Universitario de Cartago\CUC\VII Cuatrimestre\Fundamentos administración de proyectos informáticos\Código\ProyectoPrograV\bin\Debug\EntityFramework.dll
+C:\Users\destr\OneDrive - Colegio Universitario de Cartago\CUC\VII Cuatrimestre\Fundamentos administración de proyectos informáticos\Código\ProyectoPrograV\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\destr\OneDrive - Colegio Universitario de Cartago\CUC\VII Cuatrimestre\Fundamentos administración de proyectos informáticos\Código\ProyectoPrograV\bin\Debug\EntityFramework.xml
+C:\Users\destr\OneDrive - Colegio Universitario de Cartago\CUC\VII Cuatrimestre\Fundamentos administración de proyectos informáticos\Código\ProyectoPrograV\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\destr\OneDrive - Colegio Universitario de Cartago\CUC\VII Cuatrimestre\Fundamentos administración de proyectos informáticos\Código\ProyectoPrograV\obj\Debug\ProyectoPrograV.csproj.AssemblyReference.cache
+C:\Users\destr\OneDrive - Colegio Universitario de Cartago\CUC\VII Cuatrimestre\Fundamentos administración de proyectos informáticos\Código\ProyectoPrograV\obj\Debug\ProyectoPrograV.csproj.CoreCompileInputs.cache
+C:\Users\destr\OneDrive - Colegio Universitario de Cartago\CUC\VII Cuatrimestre\Fundamentos administración de proyectos informáticos\Código\ProyectoPrograV\obj\Debug\ProyectoPrograV.csproj.CopyComplete
+C:\Users\destr\OneDrive - Colegio Universitario de Cartago\CUC\VII Cuatrimestre\Fundamentos administración de proyectos informáticos\Código\ProyectoPrograV\obj\Debug\ProyectoPrograV.dll
+C:\Users\destr\OneDrive - Colegio Universitario de Cartago\CUC\VII Cuatrimestre\Fundamentos administración de proyectos informáticos\Código\ProyectoPrograV\obj\Debug\ProyectoPrograV.pdb

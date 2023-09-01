@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PrematriculaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Asistencia">
+    <Key>
+      <PropertyRef Name="Codigo_Grupo" />
+      <PropertyRef Name="Codigo_Curso" />
+      <PropertyRef Name="Fecha_Asistencia" />
+      <PropertyRef Name="Tipo_ID_Esutiante" />
+      <PropertyRef Name="Identificacion_Estudiante" />
+    </Key>
+    <Property Name="Codigo_Grupo" Type="Byte" Nullable="false" />
+    <Property Name="Codigo_Curso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_Asistencia" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Tipo_Registro" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tipo_ID_Esutiante" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Identificacion_Estudiante" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Matricula" Relationship="Self.FK_Asistencia_Matricula1" FromRole="Asistencia" ToRole="Matricula" />
+  </EntityType>
+  <EntityType Name="Carrera">
+    <Key>
+      <PropertyRef Name="Codigo_Carrera" />
+    </Key>
+    <Property Name="Codigo_Carrera" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre_Carrera" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cursos" Relationship="Self.FK_Cursos_Carreras1" FromRole="Carreras" ToRole="Cursos" />
+  </EntityType>
+  <EntityType Name="Correos_Estudiantes">
+    <Key>
+      <PropertyRef Name="Corre_Electronico" />
+      <PropertyRef Name="Tipo_ID_Estudiante" />
+      <PropertyRef Name="Identificacion_Estudiante" />
+    </Key>
+    <Property Name="Corre_Electronico" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tipo_ID_Estudiante" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Identificacion_Estudiante" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Estudiante" Relationship="Self.FK_Correos_Estudiantes_Estudiantes" FromRole="Correos_Estudiantes" ToRole="Estudiantes" />
+  </EntityType>
+  <EntityType Name="Correos_Profesores">
+    <Key>
+      <PropertyRef Name="Corre_Electronico" />
+      <PropertyRef Name="Tipo_ID_Profesor" />
+      <PropertyRef Name="Identificacion_Profesor" />
+    </Key>
+    <Property Name="Corre_Electronico" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tipo_ID_Profesor" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Identificacion_Profesor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Profesore" Relationship="Self.FK_Correos_Profesores_Profesores" FromRole="Correos_Profesores" ToRole="Profesores" />
+  </EntityType>
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="Codigo_Curso" />
+    </Key>
+    <Property Name="Codigo_Curso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre_Curso" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Codigo_Carrera" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK_Cursos_Carreras1" FromRole="Cursos" ToRole="Carreras" />
+    <NavigationProperty Name="Grupos" Relationship="Self.FK_Grupos_Cursos" FromRole="Cursos" ToRole="Grupos" />
+  </EntityType>
+  <EntityType Name="Estudiante">
+    <Key>
+      <PropertyRef Name="Tipo_ID" />
+      <PropertyRef Name="Identificacion" />
+    </Key>
+    <Property Name="Tipo_ID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Identificacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Segundo_apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_Nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Primer_Apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Correos_Estudiantes" Relationship="Self.FK_Correos_Estudiantes_Estudiantes" FromRole="Estudiantes" ToRole="Correos_Estudiantes" />
+    <NavigationProperty Name="Matriculas" Relationship="Self.FK_Matricula_Estudiantes" FromRole="Estudiantes" ToRole="Matricula" />
+    <NavigationProperty Name="Telefonos_Estudiantes" Relationship="Self.FK_Telefonos_Estudiantes_Estudiantes" FromRole="Estudiantes" ToRole="Telefonos_Estudiantes" />
+  </EntityType>
+  <EntityType Name="Grupos">
+    <Key>
+      <PropertyRef Name="Numero_Grupo" />
+      <PropertyRef Name="Codigo_Curs" />
+    </Key>
+    <Property Name="Numero_Grupo" Type="Byte" Nullable="false" />
+    <Property Name="Codigo_Curs" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Identificacion_Profesor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Horario" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Anno" Type="Int32" Nullable="false" />
+    <Property Name="NumeroPeriodo" Type="Byte" Nullable="false" />
+    <Property Name="Tipo_ID_Profeso" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Curso" Relationship="Self.FK_Grupos_Cursos" FromRole="Grupos" ToRole="Cursos" />
+    <NavigationProperty Name="Profesore" Relationship="Self.FK_Grupos_Profesores1" FromRole="Grupos" ToRole="Profesores" />
+    <NavigationProperty Name="Matriculas" Relationship="Self.FK_Matricula_Grupos1" FromRole="Grupos" ToRole="Matricula" />
+  </EntityType>
+  <EntityType Name="Matricula">
+    <Key>
+      <PropertyRef Name="Tipo_ID_Estudiante" />
+      <PropertyRef Name="Identificacion_Estudiante" />
+      <PropertyRef Name="Codigo_Curso" />
+    </Key>
+    <Property Name="Numero_Grupo" Type="Byte" Nullable="false" />
+    <Property Name="Tipo_Matricula" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tipo_ID_Estudiante" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Identificacion_Estudiante" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nota" Type="Double" />
+    <Property Name="Codigo_Curso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Asistencias" Relationship="Self.FK_Asistencia_Matricula1" FromRole="Matricula" ToRole="Asistencia" />
+    <NavigationProperty Name="Estudiante" Relationship="Self.FK_Matricula_Estudiantes" FromRole="Matricula" ToRole="Estudiantes" />
+    <NavigationProperty Name="Grupos" Relationship="Self.FK_Matricula_Grupos1" FromRole="Matricula" ToRole="Grupos" />
+  </EntityType>
+  <EntityType Name="Profesore">
+    <Key>
+      <PropertyRef Name="Tipo_ID" />
+      <PropertyRef Name="Identificacion" />
+    </Key>
+    <Property Name="Tipo_ID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Identificacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Primer_Apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Segundo_apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_Nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Correos_Profesores" Relationship="Self.FK_Correos_Profesores_Profesores" FromRole="Profesores" ToRole="Correos_Profesores" />
+    <NavigationProperty Name="Grupos" Relationship="Self.FK_Grupos_Profesores1" FromRole="Profesores" ToRole="Grupos" />
+    <NavigationProperty Name="Telefonos_Profesores" Relationship="Self.FK_Telefonos_Profesores_Profesores" FromRole="Profesores" ToRole="Telefonos_Profesores" />
+  </EntityType>
+  <EntityType Name="Telefonos_Estudiantes">
+    <Key>
+      <PropertyRef Name="Numero_Telefono" />
+      <PropertyRef Name="Tipo_ID_Estudiante" />
+      <PropertyRef Name="Identificacion_Estudiante" />
+    </Key>
+    <Property Name="Numero_Telefono" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Tipo_ID_Estudiante" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Identificacion_Estudiante" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Estudiante" Relationship="Self.FK_Telefonos_Estudiantes_Estudiantes" FromRole="Telefonos_Estudiantes" ToRole="Estudiantes" />
+  </EntityType>
+  <EntityType Name="Telefonos_Profesores">
+    <Key>
+      <PropertyRef Name="Numero_Telefono" />
+      <PropertyRef Name="Tipo_ID_Profesor" />
+      <PropertyRef Name="Identificacion_Profesor" />
+    </Key>
+    <Property Name="Numero_Telefono" Type="Int32" Nullable="false" />
+    <Property Name="Tipo_ID_Profesor" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Identificacion_Profesor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Profesore" Relationship="Self.FK_Telefonos_Profesores_Profesores" FromRole="Telefonos_Profesores" ToRole="Profesores" />
+  </EntityType>
+  <Association Name="FK_Asistencia_Matricula1">
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="1" />
+    <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Matricula">
+        <PropertyRef Name="Tipo_ID_Estudiante" />
+        <PropertyRef Name="Identificacion_Estudiante" />
+        <PropertyRef Name="Codigo_Curso" />
+      </Principal>
+      <Dependent Role="Asistencia">
+        <PropertyRef Name="Tipo_ID_Esutiante" />
+        <PropertyRef Name="Identificacion_Estudiante" />
+        <PropertyRef Name="Codigo_Curso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cursos_Carreras1">
+    <End Role="Carreras" Type="Self.Carrera" Multiplicity="1" />
+    <End Role="Cursos" Type="Self.Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carreras">
+        <PropertyRef Name="Codigo_Carrera" />
+      </Principal>
+      <Dependent Role="Cursos">
+        <PropertyRef Name="Codigo_Carrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Correos_Estudiantes_Estudiantes">
+    <End Role="Estudiantes" Type="Self.Estudiante" Multiplicity="1" />
+    <End Role="Correos_Estudiantes" Type="Self.Correos_Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiantes">
+        <PropertyRef Name="Tipo_ID" />
+        <PropertyRef Name="Identificacion" />
+      </Principal>
+      <Dependent Role="Correos_Estudiantes">
+        <PropertyRef Name="Tipo_ID_Estudiante" />
+        <PropertyRef Name="Identificacion_Estudiante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Correos_Profesores_Profesores">
+    <End Role="Profesores" Type="Self.Profesore" Multiplicity="1" />
+    <End Role="Correos_Profesores" Type="Self.Correos_Profesores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profesores">
+        <PropertyRef Name="Tipo_ID" />
+        <PropertyRef Name="Identificacion" />
+      </Principal>
+      <Dependent Role="Correos_Profesores">
+        <PropertyRef Name="Tipo_ID_Profesor" />
+        <PropertyRef Name="Identificacion_Profesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grupos_Cursos">
+    <End Role="Cursos" Type="Self.Curso" Multiplicity="1" />
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cursos">
+        <PropertyRef Name="Codigo_Curso" />
+      </Principal>
+      <Dependent Role="Grupos">
+        <PropertyRef Name="Codigo_Curs" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matricula_Estudiantes">
+    <End Role="Estudiantes" Type="Self.Estudiante" Multiplicity="1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiantes">
+        <PropertyRef Name="Tipo_ID" />
+        <PropertyRef Name="Identificacion" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="Tipo_ID_Estudiante" />
+        <PropertyRef Name="Identificacion_Estudiante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telefonos_Estudiantes_Estudiantes">
+    <End Role="Estudiantes" Type="Self.Estudiante" Multiplicity="1" />
+    <End Role="Telefonos_Estudiantes" Type="Self.Telefonos_Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiantes">
+        <PropertyRef Name="Tipo_ID" />
+        <PropertyRef Name="Identificacion" />
+      </Principal>
+      <Dependent Role="Telefonos_Estudiantes">
+        <PropertyRef Name="Tipo_ID_Estudiante" />
+        <PropertyRef Name="Identificacion_Estudiante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grupos_Profesores1">
+    <End Role="Profesores" Type="Self.Profesore" Multiplicity="0..1" />
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profesores">
+        <PropertyRef Name="Tipo_ID" />
+        <PropertyRef Name="Identificacion" />
+      </Principal>
+      <Dependent Role="Grupos">
+        <PropertyRef Name="Tipo_ID_Profeso" />
+        <PropertyRef Name="Identificacion_Profesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matricula_Grupos1">
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupos">
+        <PropertyRef Name="Numero_Grupo" />
+        <PropertyRef Name="Codigo_Curs" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="Numero_Grupo" />
+        <PropertyRef Name="Codigo_Curso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telefonos_Profesores_Profesores">
+    <End Role="Profesores" Type="Self.Profesore" Multiplicity="1" />
+    <End Role="Telefonos_Profesores" Type="Self.Telefonos_Profesores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profesores">
+        <PropertyRef Name="Tipo_ID" />
+        <PropertyRef Name="Identificacion" />
+      </Principal>
+      <Dependent Role="Telefonos_Profesores">
+        <PropertyRef Name="Tipo_ID_Profesor" />
+        <PropertyRef Name="Identificacion_Profesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PrematriculaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Asistencias" EntityType="Self.Asistencia" />
+    <EntitySet Name="Carreras" EntityType="Self.Carrera" />
+    <EntitySet Name="Correos_Estudiantes" EntityType="Self.Correos_Estudiantes" />
+    <EntitySet Name="Correos_Profesores" EntityType="Self.Correos_Profesores" />
+    <EntitySet Name="Cursos" EntityType="Self.Curso" />
+    <EntitySet Name="Estudiantes" EntityType="Self.Estudiante" />
+    <EntitySet Name="Grupos" EntityType="Self.Grupos" />
+    <EntitySet Name="Matriculas" EntityType="Self.Matricula" />
+    <EntitySet Name="Profesores" EntityType="Self.Profesore" />
+    <EntitySet Name="Telefonos_Estudiantes" EntityType="Self.Telefonos_Estudiantes" />
+    <EntitySet Name="Telefonos_Profesores" EntityType="Self.Telefonos_Profesores" />
+    <AssociationSet Name="FK_Asistencia_Matricula1" Association="Self.FK_Asistencia_Matricula1">
+      <End Role="Matricula" EntitySet="Matriculas" />
+      <End Role="Asistencia" EntitySet="Asistencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cursos_Carreras1" Association="Self.FK_Cursos_Carreras1">
+      <End Role="Carreras" EntitySet="Carreras" />
+      <End Role="Cursos" EntitySet="Cursos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Correos_Estudiantes_Estudiantes" Association="Self.FK_Correos_Estudiantes_Estudiantes">
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+      <End Role="Correos_Estudiantes" EntitySet="Correos_Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Correos_Profesores_Profesores" Association="Self.FK_Correos_Profesores_Profesores">
+      <End Role="Profesores" EntitySet="Profesores" />
+      <End Role="Correos_Profesores" EntitySet="Correos_Profesores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grupos_Cursos" Association="Self.FK_Grupos_Cursos">
+      <End Role="Cursos" EntitySet="Cursos" />
+      <End Role="Grupos" EntitySet="Grupos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matricula_Estudiantes" Association="Self.FK_Matricula_Estudiantes">
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+      <End Role="Matricula" EntitySet="Matriculas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telefonos_Estudiantes_Estudiantes" Association="Self.FK_Telefonos_Estudiantes_Estudiantes">
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+      <End Role="Telefonos_Estudiantes" EntitySet="Telefonos_Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grupos_Profesores1" Association="Self.FK_Grupos_Profesores1">
+      <End Role="Profesores" EntitySet="Profesores" />
+      <End Role="Grupos" EntitySet="Grupos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matricula_Grupos1" Association="Self.FK_Matricula_Grupos1">
+      <End Role="Grupos" EntitySet="Grupos" />
+      <End Role="Matricula" EntitySet="Matriculas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telefonos_Profesores_Profesores" Association="Self.FK_Telefonos_Profesores_Profesores">
+      <End Role="Profesores" EntitySet="Profesores" />
+      <End Role="Telefonos_Profesores" EntitySet="Telefonos_Profesores" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

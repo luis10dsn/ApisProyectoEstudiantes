@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PrematriculaModelStoreContainer" CdmEntityContainer="PrematriculaEntities">
+    <EntitySetMapping Name="Asistencias">
+      <EntityTypeMapping TypeName="PrematriculaModel.Asistencia">
+        <MappingFragment StoreEntitySet="Asistencia">
+          <ScalarProperty Name="Codigo_Grupo" ColumnName="Codigo_Grupo" />
+          <ScalarProperty Name="Codigo_Curso" ColumnName="Codigo_Curso" />
+          <ScalarProperty Name="Fecha_Asistencia" ColumnName="Fecha_Asistencia" />
+          <ScalarProperty Name="Tipo_Registro" ColumnName="Tipo_Registro" />
+          <ScalarProperty Name="Tipo_ID_Esutiante" ColumnName="Tipo_ID_Esutiante" />
+          <ScalarProperty Name="Identificacion_Estudiante" ColumnName="Identificacion_Estudiante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carreras">
+      <EntityTypeMapping TypeName="PrematriculaModel.Carrera">
+        <MappingFragment StoreEntitySet="Carreras">
+          <ScalarProperty Name="Codigo_Carrera" ColumnName="Codigo_Carrera" />
+          <ScalarProperty Name="Nombre_Carrera" ColumnName="Nombre_Carrera" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Correos_Estudiantes">
+      <EntityTypeMapping TypeName="PrematriculaModel.Correos_Estudiantes">
+        <MappingFragment StoreEntitySet="Correos_Estudiantes">
+          <ScalarProperty Name="Corre_Electronico" ColumnName="Corre_Electronico" />
+          <ScalarProperty Name="Tipo_ID_Estudiante" ColumnName="Tipo_ID_Estudiante" />
+          <ScalarProperty Name="Identificacion_Estudiante" ColumnName="Identificacion_Estudiante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Correos_Profesores">
+      <EntityTypeMapping TypeName="PrematriculaModel.Correos_Profesores">
+        <MappingFragment StoreEntitySet="Correos_Profesores">
+          <ScalarProperty Name="Corre_Electronico" ColumnName="Corre_Electronico" />
+          <ScalarProperty Name="Tipo_ID_Profesor" ColumnName="Tipo_ID_Profesor" />
+          <ScalarProperty Name="Identificacion_Profesor" ColumnName="Identificacion_Profesor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cursos">
+      <EntityTypeMapping TypeName="PrematriculaModel.Curso">
+        <MappingFragment StoreEntitySet="Cursos">
+          <ScalarProperty Name="Codigo_Curso" ColumnName="Codigo_Curso" />
+          <ScalarProperty Name="Nombre_Curso" ColumnName="Nombre_Curso" />
+          <ScalarProperty Name="Codigo_Carrera" ColumnName="Codigo_Carrera" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estudiantes">
+      <EntityTypeMapping TypeName="PrematriculaModel.Estudiante">
+        <MappingFragment StoreEntitySet="Estudiantes">
+          <ScalarProperty Name="Tipo_ID" ColumnName="Tipo_ID" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Segundo_apellido" ColumnName="Segundo_apellido" />
+          <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha_Nacimiento" />
+          <ScalarProperty Name="Primer_Apellido" ColumnName="Primer_Apellido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupos">
+      <EntityTypeMapping TypeName="PrematriculaModel.Grupos">
+        <MappingFragment StoreEntitySet="Grupos">
+          <ScalarProperty Name="Numero_Grupo" ColumnName="Numero_Grupo" />
+          <ScalarProperty Name="Codigo_Curs" ColumnName="Codigo_Curs" />
+          <ScalarProperty Name="Identificacion_Profesor" ColumnName="Identificacion_Profesor" />
+          <ScalarProperty Name="Horario" ColumnName="Horario" />
+          <ScalarProperty Name="Anno" ColumnName="Anno" />
+          <ScalarProperty Name="NumeroPeriodo" ColumnName="NumeroPeriodo" />
+          <ScalarProperty Name="Tipo_ID_Profeso" ColumnName="Tipo_ID_Profeso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Matriculas">
+      <EntityTypeMapping TypeName="PrematriculaModel.Matricula">
+        <MappingFragment StoreEntitySet="Matricula">
+          <ScalarProperty Name="Numero_Grupo" ColumnName="Numero_Grupo" />
+          <ScalarProperty Name="Tipo_Matricula" ColumnName="Tipo_Matricula" />
+          <ScalarProperty Name="Tipo_ID_Estudiante" ColumnName="Tipo_ID_Estudiante" />
+          <ScalarProperty Name="Identificacion_Estudiante" ColumnName="Identificacion_Estudiante" />
+          <ScalarProperty Name="Nota" ColumnName="Nota" />
+          <ScalarProperty Name="Codigo_Curso" ColumnName="Codigo_Curso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profesores">
+      <EntityTypeMapping TypeName="PrematriculaModel.Profesore">
+        <MappingFragment StoreEntitySet="Profesores">
+          <ScalarProperty Name="Tipo_ID" ColumnName="Tipo_ID" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Primer_Apellido" ColumnName="Primer_Apellido" />
+          <ScalarProperty Name="Segundo_apellido" ColumnName="Segundo_apellido" />
+          <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha_Nacimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telefonos_Estudiantes">
+      <EntityTypeMapping TypeName="PrematriculaModel.Telefonos_Estudiantes">
+        <MappingFragment StoreEntitySet="Telefonos_Estudiantes">
+          <ScalarProperty Name="Numero_Telefono" ColumnName="Numero_Telefono" />
+          <ScalarProperty Name="Tipo_ID_Estudiante" ColumnName="Tipo_ID_Estudiante" />
+          <ScalarProperty Name="Identificacion_Estudiante" ColumnName="Identificacion_Estudiante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telefonos_Profesores">
+      <EntityTypeMapping TypeName="PrematriculaModel.Telefonos_Profesores">
+        <MappingFragment StoreEntitySet="Telefonos_Profesores">
+          <ScalarProperty Name="Numero_Telefono" ColumnName="Numero_Telefono" />
+          <ScalarProperty Name="Tipo_ID_Profesor" ColumnName="Tipo_ID_Profesor" />
+          <ScalarProperty Name="Identificacion_Profesor" ColumnName="Identificacion_Profesor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
